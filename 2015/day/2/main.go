@@ -2,20 +2,11 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
+
+	config "github.com/breyting/AdventOfCodeInGo"
 )
 
 func main() {
-	req, err := http.NewRequest("GET", "https://adventofcode.com/2015/day/2/input", nil)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	req.Header.Set("Content-type", "text/plain")
-
-	if res.StatusCode != 200 {
-		fmt.Println("Not the good status code :", res.StatusCode)
-	}
-
+	input, _ := config.ReadInputAOC("2015", "2")
+	fmt.Println(input)
 }

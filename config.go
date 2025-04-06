@@ -7,10 +7,10 @@ import (
 	"os"
 )
 
-const baseURL = "https://adventofcode.com/2024/day/%s/input"
+const baseURL = "https://adventofcode.com/%s/day/%s/input"
 
-func ReadInput(day string) (string, error) {
-	url := fmt.Sprintf(baseURL, day)
+func ReadInputAOC(year, day string) (string, error) {
+	url := fmt.Sprintf(baseURL, year, day)
 
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)
@@ -20,7 +20,7 @@ func ReadInput(day string) (string, error) {
 	}
 
 	// Use session token from environment variable
-	req.Header.Add("Cookie", "session="+os.Getenv("AOC_SESSION"))
+	req.Header.Add("Cookie", "session=ru=53616c7465645f5f459bfaca53ef1449f55a34ccc459db99fd680e614846e262b230b453dbfabd0b18caf8096ade16cd; session=53616c7465645f5f88bf662419ef7a32b9bedaa5f086018dbae8279421398dcbfded47206a81fc3255c75d08ea4ae0da023e042e65951321bf59b426316da8b3"+os.Getenv("AOC_SESSION"))
 
 	resp, err := client.Do(req)
 	if err != nil {
