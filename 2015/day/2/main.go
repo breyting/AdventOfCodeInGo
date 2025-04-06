@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	req, err := http.NewRequest("GET", "https://adventofcode.com/2015/day/2/input")
+	req, err := http.NewRequest("GET", "https://adventofcode.com/2015/day/2/input", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
